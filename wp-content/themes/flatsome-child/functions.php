@@ -268,112 +268,230 @@ add_action('wp_footer', function () {
 
     <style>
         #dlml_translate_element,
-        .goog-te-banner-frame, iframe.goog-te-banner-frame,
-        .goog-te-gadget, .goog-te-gadget-simple, .goog-te-gadget-icon,
-        .goog-te-menu-value, .goog-te-balloon-frame, #goog-gt-tt,
-        .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-        .VIpgJd-yAWNEb-L7lbkb {
-            display: none !important; visibility: hidden !important;
-            opacity: 0 !important; height: 0 !important; width: 0 !important;
-            overflow: hidden !important; pointer-events: none !important;
-        }
-        html, body { top: 0 !important; margin-top: 0 !important; }
-        body { position: static !important; }
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-gadget-icon,
+.goog-te-menu-value,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-yAWNEb-L7lbkb {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
 
-        #dlml_lang_switcher {
-            position: fixed !important;
-            left: 20px !important;
-            bottom: 20px !important;
-            z-index: 2147483647 !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-        }
+html,
+body {
+    top: 0 !important;
+    margin-top: 0 !important;
+}
 
-        .dlml_toggle {
-            width: 44px !important;
-            height: 44px !important;
-            min-width: 44px !important;
-            min-height: 44px !important;
-            max-width: 44px !important;
-            max-height: 44px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background: #ffffff !important;
-            border: 1px solid rgba(0,0,0,0.12) !important;
-            border-radius: 50% !important;
-            cursor: pointer !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.10) !important;
-            transition: box-shadow .18s, transform .12s !important;
-            font-size: 22px !important;
-            line-height: 1 !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            box-sizing: border-box !important;
-            overflow: hidden !important;
-        }
-        .dlml_toggle:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.16) !important;
-            transform: translateY(-1px) !important;
-        }
-        .dlml_toggle:active {
-            transform: scale(0.95) !important;
-        }
+body {
+    position: static !important;
+}
 
-        .dlml_menu {
-            position: absolute !important;
-            bottom: calc(100% + 8px) !important;
-            left: 50% !important;
-            transform: translateX(-50%) translateY(6px) scale(0.96) !important;
-            transform-origin: bottom center !important;
-            width: 72px !important;
-            background: #ffffff !important;
-            border: 1px solid rgba(0,0,0,0.09) !important;
-            border-radius: 14px !important;
-            overflow: hidden !important;
-            box-shadow: 0 8px 28px rgba(0,0,0,0.13) !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-            transition: opacity .16s, transform .16s !important;
-        }
-        #dlml_lang_switcher.is-open .dlml_menu {
-            opacity: 1 !important;
-            pointer-events: auto !important;
-            transform: translateX(-50%) translateY(0) scale(1) !important;
-        }
+/* ================================
+   DELIGO LANGUAGE SWITCHER FIX
+================================ */
 
-        .dlml_item {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 6px !important;
-            padding: 9px 0 !important;
-            border: none !important;
-            background: transparent !important;
-            width: 100% !important;
-            cursor: pointer !important;
-            transition: background .13s !important;
-            box-sizing: border-box !important;
-        }
-        .dlml_item:hover { background: rgba(0,0,0,0.04) !important; }
-        .dlml_item.is-active { background: rgba(83,74,183,0.07) !important; }
-        .dlml_item_flag { font-size: 20px !important; line-height: 1 !important; }
-        .dlml_item_check { font-size: 11px !important; color: #534AB7 !important; opacity: 0 !important; font-weight: 700 !important; }
-        .dlml_item.is-active .dlml_item_check { opacity: 1 !important; }
+#dlml_lang_switcher,
+#dlml_lang_switcher * {
+    box-sizing: border-box !important;
+}
 
-        @media (prefers-color-scheme: dark) {
-            .dlml_toggle {
-                background: #1e1e1e !important;
-                border-color: rgba(255,255,255,0.12) !important;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.4) !important;
-            }
-            .dlml_menu {
-                background: #1e1e1e !important;
-                border-color: rgba(255,255,255,0.09) !important;
-                box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
-            }
-            .dlml_item:hover { background: rgba(255,255,255,0.06) !important; }
-            .dlml_item.is-active { background: rgba(140,132,240,0.12) !important; }
-        }
+#dlml_lang_switcher {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    z-index: 2147483647 !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+/* Reset button theme / Elementor */
+#dlml_lang_switcher button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    font: inherit !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Main circle button */
+#dlml_lang_switcher .dlml_toggle {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    border-radius: 999px !important;
+    cursor: pointer !important;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16) !important;
+    overflow: hidden !important;
+    line-height: 1 !important;
+    transition: transform .16s ease, box-shadow .16s ease !important;
+}
+
+#dlml_lang_switcher .dlml_toggle:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.22) !important;
+}
+
+#dlml_lang_switcher .dlml_toggle:active {
+    transform: scale(.96) !important;
+}
+
+#dlml_lang_switcher .dlml_toggle span,
+#dlml_lang_switcher .dlml_item_flag {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+}
+
+/* Fix WordPress emoji image */
+#dlml_lang_switcher img.emoji,
+#dlml_lang_switcher img.wp-smiley {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+/* Dropdown */
+#dlml_lang_switcher .dlml_menu {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: calc(100% + 10px) !important;
+
+    width: 56px !important;
+    padding: 6px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(15, 23, 42, 0.10) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.20) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+
+    opacity: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+
+    transform: translateX(-50%) translateY(8px) scale(.96) !important;
+    transform-origin: bottom center !important;
+    transition: opacity .18s ease, transform .18s ease !important;
+}
+
+#dlml_lang_switcher.is-open .dlml_menu {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+/* Dropdown item */
+#dlml_lang_switcher .dlml_item {
+    position: relative !important;
+
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 14px !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    line-height: 1 !important;
+    transition: background .15s ease, transform .15s ease !important;
+}
+
+#dlml_lang_switcher .dlml_item:hover {
+    background: rgba(83, 74, 183, 0.08) !important;
+}
+
+#dlml_lang_switcher .dlml_item.is-active {
+    background: rgba(83, 74, 183, 0.12) !important;
+}
+
+#dlml_lang_switcher .dlml_item_check {
+    position: absolute !important;
+    right: 5px !important;
+    bottom: 5px !important;
+
+    width: 14px !important;
+    height: 14px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #534AB7 !important;
+    color: #ffffff !important;
+    border-radius: 999px !important;
+
+    font-size: 9px !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+
+    opacity: 0 !important;
+}
+
+#dlml_lang_switcher .dlml_item.is-active .dlml_item_check {
+    opacity: 1 !important;
+}
+
+@media (max-width: 767px) {
+    #dlml_lang_switcher {
+        left: 14px !important;
+        bottom: 14px !important;
+    }
+}
     </style>
 
     <div id="dlml_lang_switcher">
@@ -544,25 +662,157 @@ add_action('wp_head', function () {
 <div id="dlml_translate_element" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"></div>
 
 <style id="dlml-preload-style">
-html.dlml-preload,
-html.dlml-preload body{
-    opacity:0 !important;
-    visibility:hidden !important;
-    overflow:hidden !important;
+html.dlml-translating body {
+    overflow: hidden !important;
+}
+
+html.dlml-translating body > *:not(#dlmlPageLoader):not(script):not(style):not(link):not(meta) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+#dlmlPageLoader {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fafaf8 !important;
+    transition: opacity .35s ease, visibility .35s ease !important;
+}
+
+#dlmlPageLoader.is-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.dlml-loader-card {
+    width: min(320px, calc(100vw - 48px));
+    padding: 28px 24px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.82);
+    border: 1px solid rgba(15,23,42,.08);
+    box-shadow: 0 24px 70px rgba(15,23,42,.14);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    text-align: center;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.dlml-loader-logo {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 14px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #534AB7;
+    color: #fff;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: -.04em;
+    box-shadow: 0 16px 36px rgba(83,74,183,.28);
+}
+
+.dlml-loader-title {
+    margin: 0;
+    color: #101114;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.dlml-loader-text {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.dlml-loader-bar {
+    position: relative;
+    height: 5px;
+    margin-top: 18px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(15,23,42,.08);
+}
+
+.dlml-loader-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 42%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #534AB7, #F5B544);
+    animation: dlmlLoading 1s ease-in-out infinite;
+}
+
+@keyframes dlmlLoading {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(260%);
+    }
+}
+
+/* Hide Google Translate top banner / injected UI */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.skiptranslate,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-yAWNEb-L7lbkb {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+html,
+body {
+    top: 0 !important;
+    margin-top: 0 !important;
 }
 </style>
 
 <script>
 (function () {
-    document.documentElement.classList.add('dlml-preload');
+    var MAX_WAIT = 2200;
+    var EXTRA_DELAY = 250;
+
+    document.documentElement.classList.add("dlml-translating");
+
+    document.write(
+    '<div id="dlmlPageLoader">' +
+        '<div class="dlml-loader-card">' +
+            '<div class="dlml-loader-logo">DT</div>' +
+            '<p class="dlml-loader-title">Loading content</p>' +
+            '<p class="dlml-loader-text">Please wait a moment.</p>' +
+            '<div class="dlml-loader-bar"></div>' +
+        '</div>' +
+    '</div>'
+);
 
     function setTranslateCookie() {
         var value = "/vi/en";
+        var host = location.hostname;
 
         document.cookie = "googtrans=" + value + ";path=/";
-        document.cookie = "googtrans=" + value + ";path=/;domain=" + location.hostname;
+        document.cookie = "googtrans=" + value + ";path=/;domain=" + host;
 
-        var parts = location.hostname.split(".");
+        var parts = host.split(".");
         if (parts.length >= 2) {
             var root = "." + parts.slice(-2).join(".");
             document.cookie = "googtrans=" + value + ";path=/;domain=" + root;
@@ -573,38 +823,54 @@ html.dlml-preload body{
 
     var revealed = false;
 
-    function revealPage() {
-        if (revealed) return;
-        revealed = true;
+    function hideLoader() {
+        var loader = document.getElementById("dlmlPageLoader");
+        if (loader) {
+            loader.classList.add("is-hide");
+            setTimeout(function () {
+                if (loader && loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 400);
+        }
+    }
 
-        document.documentElement.classList.remove('dlml-preload');
+    function cleanup() {
+        document.documentElement.classList.remove("dlml-translating");
 
-        var style = document.getElementById('dlml-preload-style');
-        if (style) style.remove();
 
         if (window.dlmlHideGoogleTranslateUI) {
             window.dlmlHideGoogleTranslateUI();
         }
+
+        hideLoader();
+    }
+
+    function revealPage() {
+        if (revealed) return;
+        revealed = true;
+        cleanup();
+    }
+
+    function hasGoogleTranslatedClass() {
+        var cls = document.documentElement.className || "";
+        return cls.indexOf("translated-ltr") !== -1 || cls.indexOf("translated-rtl") !== -1;
     }
 
     function hasVietnameseText() {
-        if (!document.body) return true;
+        if (!document.body) return false;
 
         var text = document.body.innerText || "";
-
-        if (text.length < 200) return true;
 
         var viTexts = [
             "Trang chủ",
             "Dịch Vụ",
-            "Công Nghệ Dẫn Lối",
-            "Con Người Làm Chủ",
-            "Khám Phá Hệ Sinh Thái",
-            "Liên Hệ Tư Vấn",
-            "Tài xế trực tuyến",
-            "Nền tảng thương mại điện tử",
-            "Quy Mô & Năng Lực",
-            "Hệ Sinh Thái Công Nghệ"
+            "Công Nghệ",
+            "Liên Hệ",
+            "Khám Phá",
+            "Hệ Sinh Thái",
+            "Nền tảng",
+            "Tư Vấn"
         ];
 
         for (var i = 0; i < viTexts.length; i++) {
@@ -626,7 +892,10 @@ html.dlml-preload body{
             "Explore",
             "Technology",
             "Digital",
-            "Business"
+            "Business",
+            "Ecosystem",
+            "Platform",
+            "Solution"
         ];
 
         for (var i = 0; i < enTexts.length; i++) {
@@ -637,19 +906,13 @@ html.dlml-preload body{
     }
 
     function checkTranslated() {
-        var cls = document.documentElement.className || "";
-
-        var googleMarkedTranslated =
-            cls.indexOf("translated-ltr") !== -1 ||
-            cls.indexOf("translated-rtl") !== -1;
-
-        if (googleMarkedTranslated && !hasVietnameseText()) {
-            setTimeout(revealPage, 600);
+        if (hasGoogleTranslatedClass()) {
+            setTimeout(revealPage, EXTRA_DELAY);
             return true;
         }
 
         if (hasEnglishText() && !hasVietnameseText()) {
-            setTimeout(revealPage, 600);
+            setTimeout(revealPage, EXTRA_DELAY);
             return true;
         }
 
@@ -674,13 +937,13 @@ html.dlml-preload body{
             clearInterval(interval);
             observer.disconnect();
         }
-    }, 300);
+    }, 120);
 
     setTimeout(function () {
         clearInterval(interval);
         observer.disconnect();
         revealPage();
-    }, 3500);
+    }, MAX_WAIT);
 })();
 </script>
 
@@ -696,8 +959,8 @@ function deligoGoogleTranslateInit() {
             google.translate.TranslateElement
         ) {
             new google.translate.TranslateElement({
-                pageLanguage: 'vi',
-                includedLanguages: 'en,vi',
+                pageLanguage: "vi",
+                includedLanguages: "en,vi",
                 autoDisplay: false
             }, "dlml_translate_element");
 
@@ -713,7 +976,7 @@ function deligoGoogleTranslateInit() {
     var timer = setInterval(function () {
         tries++;
 
-        if (init() || tries > 30) {
+        if (init() || tries > 25) {
             clearInterval(timer);
         }
     }, 100);
@@ -725,6 +988,7 @@ function deligoGoogleTranslateInit() {
 <?php
 
 }, -9999);
+
 
 /**
  * Hreflang
