@@ -662,6 +662,32 @@ add_action('wp_head', function () {
 <div id="dlml_translate_element" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"></div>
 
 <style id="dlml-preload-style">
+.dlml-loader-logo-img {
+    width: 118px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    animation: dlmlLogoPulse 1.25s ease-in-out infinite !important;
+}
+
+@keyframes dlmlLogoPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: .82;
+    }
+    50% {
+        transform: scale(1.045);
+        opacity: 1;
+    }
+}
+
+.dlml-loader-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
 html.dlml-translating body {
     overflow: hidden !important;
 }
@@ -797,10 +823,7 @@ body {
     document.write(
     '<div id="dlmlPageLoader">' +
         '<div class="dlml-loader-card">' +
-            '<div class="dlml-loader-logo">DT</div>' +
-            '<p class="dlml-loader-title">Loading content</p>' +
-            '<p class="dlml-loader-text">Please wait a moment.</p>' +
-            '<div class="dlml-loader-bar"></div>' +
+            '<img class="dlml-loader-logo-img" src="/wp-content/uploads/2026/05/ChatGPT_Image_May_14__2026__03_05_50_PM__1_-removebg-preview.png" alt="DELITECH">' +
         '</div>' +
     '</div>'
 );
