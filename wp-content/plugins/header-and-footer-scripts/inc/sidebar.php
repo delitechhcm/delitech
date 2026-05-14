@@ -1,0 +1,49 @@
+<?php
+/**
+ * Plugin info and self promotion.
+ *
+ * @package    Header and Footer Scripts
+ * @author     Anand Kumar <anand@anandkumar.net>
+ * @copyright  Copyright (c) 2013 - 2026, Anand Kumar
+ * @link       https://github.com/anandkumar/header-and-footer-scripts
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}?>
+<div id="postbox-container-1" class="postbox-container">
+
+  <div class="postbox">
+    <h3 class="hndle"><?php esc_html_e( 'Need Help?', 'header-and-footer-scripts'); ?></h3>
+    <div class="inside">
+      <p><?php esc_html_e( 'Check the documentation for usage instructions, or ask a question if you need help.', 'header-and-footer-scripts'); ?></p>
+      <p><strong><a href="<?php echo esc_url( "https://github.com/anandkumar/header-and-footer-scripts/wiki" ); ?>" class="button"><?php esc_html_e('Explore Docs and Support', 'header-and-footer-scripts'); ?></a></strong></p>
+    </div>
+  </div>
+
+  <div class="postbox">
+    <h3 class="hndle"><?php esc_html_e( 'Contribute!', 'header-and-footer-scripts'); ?></h3>
+    <div class="inside">
+      <p><?php esc_html_e( 'Help us to make this plugin even better. Please follow the link to know more and contribute.', 'header-and-footer-scripts'); ?></p>
+      <p><a href="<?php echo esc_url( "https://github.com/anandkumar/header-and-footer-scripts" ); ?>" class="button"><?php esc_html_e( 'Contribute', 'header-and-footer-scripts'); ?></a></p>
+    </div>
+  </div>
+
+  <div class="postbox">
+    <h3 class="hndle"><?php esc_html_e( 'Rate 5 Stars', 'header-and-footer-scripts'); ?></h3>
+    <div class="inside">
+      <p><?php esc_html_e( 'Find this plugin useful rate it 5 stars and leave a nice little comment at wordpress.org. I would really appreciate that.', 'header-and-footer-scripts'); ?></p>
+      <p><a href="<?php echo esc_url( "https://wordpress.org/support/plugin/header-and-footer-scripts/reviews/" ); ?>" class="button"><?php esc_html_e( 'Rate 5 Stars', 'header-and-footer-scripts'); ?></a></p>
+    </div>
+  </div>
+
+  <div class="postbox">
+    <h3 class="hndle"><?php esc_html_e( 'Join Our Community', 'header-and-footer-scripts'); ?></h3>
+    <div class="inside">
+      <p><?php esc_html_e( 'Join the discussions and share your ideas.', 'header-and-footer-scripts'); ?></p>
+      <p><a href="<?php echo esc_url( "https://github.com/anandkumar/header-and-footer-scripts/discussions" ); ?>" class="button"><?php esc_html_e( 'Join Discussions', 'header-and-footer-scripts'); ?></a></p>
+    </div>
+  </div>
+
+</div>

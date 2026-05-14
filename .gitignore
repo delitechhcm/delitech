@@ -1,0 +1,25 @@
+# WordPress
+wp-config.php
+
+# Uploads
+wp-content/uploads/
+
+# Cache
+wp-content/cache/
+wp-content/upgrade/
+
+# Backup
+*.sql
+*.zip
+
+# Node
+node_modules/
+
+# Composer
+vendor/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log

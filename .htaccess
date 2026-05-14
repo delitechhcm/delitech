@@ -1,0 +1,74 @@
+Options -Indexes
+ServerSignature Off
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+
+RewriteBase /
+RewriteCond %{QUERY_STRING} (author=\d+) [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*wp-json/wp/v2/(users) [NC]
+RewriteRule .* - [F]
+
+<FilesMatch ^(?i:\.ht.*)$>
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "^.*(((?:wp-config)\.(?:php|bak|swp))|php.ini|\.[hH][tT][aApP].*|((?:error_log|readme|license|changelog|-config|-sample)\.(?:php|md|log|txt|htm|html)))$">
+  Require all denied
+</FilesMatch>
+
+RewriteCond %{HTTP_USER_AGENT} (?:virusbot|spambot|evilbot|acunetix|BLEXBot|domaincrawler\.com|LinkpadBot|MJ12bot/v|majestic12\.co\.uk|AhrefsBot|TwengaBot|SemrushBot|nikto|winhttp|Xenu\s+Link\s+Sleuth|Baiduspider|HTTrack|clshttp|harvest|extract|grab|miner|python-requests) [NC]
+RewriteRule ^(.*)$ http://no.access/
+
+# BEGIN HTTPS Redirect
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# END HTTPS Redirect
+
+# BEGIN Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    Header always set Content-Security-Policy "upgrade-insecure-requests;"
+</IfModule>
+# END Security Headers
+
+
+
+
+
+
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# AUTO BLOCK XMLRPC
+<Files xmlrpc.php>
+    Order Allow,Deny
+    Deny from all
+</Files>
+# END AUTO BLOCK XMLRPC
+
+# BEGIN LiteSpeed
+# The directives (lines) between "BEGIN LiteSpeed" and "END LiteSpeed" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule Litespeed>
+	SetEnv noabort 1
+</IfModule>
+# END LiteSpeed
