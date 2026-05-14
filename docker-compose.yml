@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: delitech_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: delitech_db
+      MYSQL_USER: delitech_user
+      MYSQL_PASSWORD: delitech@2025
+      MYSQL_ROOT_PASSWORD: root@delitech2025
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:latest
+    container_name: delitech_wp
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: delitech_db
+      WORDPRESS_DB_USER: delitech_user
+      WORDPRESS_DB_PASSWORD: delitech@2025
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - db
+
+volumes:
+  db_data:
