@@ -811,6 +811,48 @@ body {
     top: 0 !important;
     margin-top: 0 !important;
 }
+/* =====================================================
+   DELITECH — FIX LOADER LOGO SIZE
+===================================================== */
+
+#dlmlPageLoader .dlml-loader-card {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+#dlmlPageLoader .dlml-loader-logo-img {
+    width: 220px !important;
+    max-width: 62vw !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    animation: dlmlLogoPulse 1.25s ease-in-out infinite !important;
+}
+
+@media (max-width: 767px) {
+    #dlmlPageLoader .dlml-loader-logo-img {
+        width: 170px !important;
+        max-width: 68vw !important;
+    }
+}
+
+@keyframes dlmlLogoPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: .86;
+    }
+    50% {
+        transform: scale(1.045);
+        opacity: 1;
+    }
+}
 </style>
 
 <script>
